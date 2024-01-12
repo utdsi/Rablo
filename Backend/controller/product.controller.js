@@ -82,8 +82,9 @@ const getByRating = async(req,res)=>{
 
     try {
         const products = await ProductModel.find({rating: { $gt: rating } })
+        res.status(200).send({"msg":products})
     } catch (error) {
-        
+        res.status(500).send({"msg":"Internal"})
     }
 }
 
